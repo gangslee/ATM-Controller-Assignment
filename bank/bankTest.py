@@ -11,12 +11,12 @@ class BankTest(unittest.TestCase):
     def test1_add_data(self):
         print("\nTest01 add_data Started")
 
-        # Test createable logic
+        # Test creatable logic
         add_data_test = self.bank.add_data("TEST01", 111111, "LEE", 10000)
         self.assertTrue(add_data_test, print(
             "add_data case - Creatable Logic"))
 
-        # Test non-createable logic
+        # Test non-creatable logic
         add_data_test = self.bank.add_data("TEST01", 111111, "LEE", 500)
         self.assertFalse(add_data_test, print(
             "add_data case - Non-Creatable Logic, Data is already created"))
@@ -32,12 +32,12 @@ class BankTest(unittest.TestCase):
         self.assertTrue(add_account_test, print(
             "add_account case - Creatable Account"))
 
-        # Test non-addeable logic - wrong card_id
+        # Test non-addable logic - wrong card_id
         wrong_card_test = self.bank.add_account("AAAAAA", 123456, "KIM")
         self.assertFalse(wrong_card_test, print(
             "add_account case - Non-Creatable Account, Wrong Card ID"))
 
-        # Test non-addeable logic - wrong pin
+        # Test non-addable logic - wrong pin
         wrong_pin_test = self.bank.add_account("A1B2C3", 111111, "KIM")
         self.assertFalse(wrong_pin_test, print(
             "add_account case - Non-Creatable Account, Wrong PIN Number"))

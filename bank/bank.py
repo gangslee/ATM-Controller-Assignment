@@ -1,5 +1,7 @@
-class Bank():
-    def __init__(self, data={}):
+class Bank:
+    def __init__(self, data=None):
+        if data is None:
+            data = {}
         self.data = data
 
     def add_data(self, card_id, pin, account, balance):
