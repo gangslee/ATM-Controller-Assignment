@@ -1,7 +1,5 @@
-# 계좌 정보들을 갖고 있어야함
-
 class Bank():
-    def __init__(self, data):
+    def __init__(self, data={}):
         self.data = data
 
     def add_data(self, card_id, pin, account, balance):
@@ -11,15 +9,15 @@ class Bank():
         else:
             return False
 
-    def add_account(self, card_id, pin, account, balance):
+    def add_account(self, card_id, pin, account):
         if card_id in self.data and pin == self.data[card_id]["pin"]:
-            self.data[card_id]["accounts"][account] = balance
-            return self.data[card_id]["accounts"]
+            self.data[card_id]["accounts"][account] = 0
+            return True
         else:
-            return None
+            return False
 
     def auth_info(self, card_id, pin):
         if card_id in self.data and pin == self.data[card_id]["pin"]:
-            return self.data[card_id]["accounts"]
+            return list(self.data[card_id]["accounts"].keys())
         else:
             return None
